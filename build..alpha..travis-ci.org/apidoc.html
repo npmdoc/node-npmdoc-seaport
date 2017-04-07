@@ -1,0 +1,1353 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/substack/seaport"
+
+    >seaport (v2.0.9)</a>
+</h1>
+<h4>service registry and port assignment for clusters</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seaport">module seaport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport">
+            function <span class="apidocSignatureSpan"></span>seaport
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.connect">
+            function <span class="apidocSignatureSpan">seaport.</span>connect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.createServer">
+            function <span class="apidocSignatureSpan">seaport.</span>createServer
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol">
+            function <span class="apidocSignatureSpan">seaport.</span>protocol
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.super">
+            function <span class="apidocSignatureSpan">seaport.</span>super
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seaport.</span>protocol.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seaport.</span>seaport.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seaport.protocol">module seaport.protocol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.protocol">
+            function <span class="apidocSignatureSpan">seaport.</span>protocol
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.super">
+            function <span class="apidocSignatureSpan">seaport.protocol.</span>super
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seaport.protocol.prototype">module seaport.protocol.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.prototype._read">
+            function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>_read
+            <span class="apidocSignatureSpan">(size)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.prototype._write">
+            function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>_write
+            <span class="apidocSignatureSpan">(row, enc, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.prototype.createStream">
+            function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>createStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.prototype.destroy">
+            function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.protocol.prototype.send">
+            function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>send
+            <span class="apidocSignatureSpan">(row)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seaport.seaport">module seaport.seaport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.seaport">
+            function <span class="apidocSignatureSpan">seaport.</span>seaport
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.super">
+            function <span class="apidocSignatureSpan">seaport.seaport.</span>super
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seaport.seaport.prototype">module seaport.seaport.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype._isAuthorized">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>_isAuthorized
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.close">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.createStream">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>createStream
+            <span class="apidocSignatureSpan">(addr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.free">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>free
+            <span class="apidocSignatureSpan">(meta)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.get">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>get
+            <span class="apidocSignatureSpan">(meta, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.query">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>query
+            <span class="apidocSignatureSpan">(meta)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.register">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>register
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.registerMeta">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>registerMeta
+            <span class="apidocSignatureSpan">(meta, port)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seaport.seaport.prototype.set">
+            function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>set
+            <span class="apidocSignatureSpan">(id, meta)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seaport" id="apidoc.module.seaport">module seaport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport" id="apidoc.element.seaport.seaport">
+        function <span class="apidocSignatureSpan"></span>seaport
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Seaport(opts) {
+    var self = this;
+    if (!(this instanceof Seaport)) return new Seaport(opts);
+    if (!opts) opts = {};
+    this.endpoints = [];
+    this.services = {};
+    this.heartbeat = defined(opts.heartbeat, 15 * 1000);
+    this.timeout = defined(opts.timeout, this.heartbeat * 3);
+    this.known = {};
+    this.doc = this; // for legacy .doc.set() syntax, deprecated
+
+    if (opts.private) {
+        var keys = { private: opts.private, public: opts.public };
+        this.secure = secure(keys);
+        if (opts.authorized) {
+            this.authorized = opts.authorized.map(normalizeKey);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.connect" id="apidoc.element.seaport.connect">
+        function <span class="apidocSignatureSpan">seaport.</span>connect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function () {
+    var args = [].slice.call(arguments);
+    var opts = {};
+    for (var i = 0; i &#x3c; args.length; i++) {
+        if (typeof args[i] === &#x27;object&#x27;) {
+            opts = args[i];
+            args.splice(i, 1);
+            break;
+        }
+    }
+    var port = args[0] || opts.port;
+    var host = args[1] || opts.host;
+
+    if (typeof port === &#x27;string&#x27; &#x26;&#x26; typeof host === &#x27;number&#x27;) {
+        host = args[0];
+        port = args[1];
+    }
+    if (typeof port === &#x27;string&#x27; &#x26;&#x26; /:\d+$/.test(port)) {
+        host = port.split(&#x27;:&#x27;)[0];
+        port = port.split(&#x27;:&#x27;)[1];
+    }
+    if (typeof port === &#x27;string&#x27; &#x26;&#x26; /^\d+$/.test(port)) {
+        port = Number(port);
+    }
+
+    var s = seaport(opts);
+    var conIx = 0;
+
+    var c = (function reconnect () {
+        if (s.closed) return;
+
+        var hubs = [ { port : port, host : host } ].concat(s.query(&#x27;seaport&#x27;));
+        if (hubs.length &#x3c;= conIx) conIx = hubs.length - 1;
+        c = net.connect.call(null, hubs[conIx].port, hubs[conIx].host);
+        conIx = (conIx + 1) % hubs.length;
+
+        var active = true;
+
+        c.on(&#x27;connect&#x27;, s.emit.bind(s, &#x27;connect&#x27;));
+
+        c.on(&#x27;end&#x27;, onend);
+        c.on(&#x27;error&#x27;, onend);
+        c.on(&#x27;close&#x27;, onend);
+
+        var stream = s.createStream();
+        stream.on(&#x27;timeout&#x27;, onend);
+
+        c.pipe(stream).pipe(c);
+        return c;
+
+        function onend () {
+            if (s.closed) return;
+            if (!active) return;
+            active = false;
+            if (stream.destroy) stream.destroy();
+            s.emit(&#x27;disconnect&#x27;);
+            setTimeout(reconnect, 1000);
+        }
+    })();
+
+    s.on(&#x27;close&#x27;, function () {
+        if (c) c.end();
+        if (nodeVersion !== &#x27;0.8&#x27;) {
+            if (c.destroy) c.destroy();
+        }
+    });
+
+    return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+then obtain a port for a server called `&#x27;web&#x27;`:
+
+server.js:
+
+``` js
+var seaport = require(&#x27;seaport&#x27;);
+var ports = seaport.<span class="apidocCodeKeywordSpan">connect</span>(&#x27;localhost&#x27;, 9090);
+var http = require(&#x27;http&#x27;);
+
+var server = http.createServer(function (req, res) {
+    res.end(&#x27;beep boop\r\n&#x27;);
+});
+
+server.listen(ports.register(&#x27;web@1.2.3&#x27;));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.createServer" id="apidoc.element.seaport.createServer">
+        function <span class="apidocSignatureSpan">seaport.</span>createServer
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createServer = function (opts) {
+    if (!opts) opts = {};
+    opts.isServer = true;
+    var s = seaport(opts);
+
+    s.server = net.createServer(function (c) {
+        c.on(&#x27;error&#x27;, function (error) {
+            c.emit(&#x27;end&#x27;);
+        });
+        c.pipe(s.createStream(c.remoteAddress)).pipe(c);
+    });
+    s.listen = s.server.listen.bind(s.server);
+    s.address = s.server.address.bind(s.server);
+
+    s.peer = function () {
+        if (!s.address()) {
+            var args = arguments;
+            s.once(&#x27;listening&#x27;, function () {
+                s.peer.apply(s, args);
+            });
+            return;
+        }
+        var stream = s.createStream();
+        var c = exports.connect.apply(this, arguments);
+        s.on(&#x27;close&#x27;, c.close.bind(c));
+        stream.pipe(c.createStream()).pipe(stream);
+
+        c.register({
+            role : &#x27;seaport@&#x27; + version,
+            port : s.address().port
+        });
+    };
+
+    s.on(&#x27;close&#x27;, function () {
+        s.server.close();
+    });
+
+    s.server.on(&#x27;listening&#x27;, s.emit.bind(s, &#x27;listening&#x27;));
+    s.server.on(&#x27;connection&#x27;, s.emit.bind(s, &#x27;connection&#x27;));
+
+    return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+exports.createServer = function (opts) {
+if (!opts) opts = {};
+opts.isServer = true;
+var s = seaport(opts);
+
+s.server = net.<span class="apidocCodeKeywordSpan">createServer</span>(function (c) {
+    c.on(&#x27;error&#x27;, function (error) {
+        c.emit(&#x27;end&#x27;);
+    });
+    c.pipe(s.createStream(c.remoteAddress)).pipe(c);
+});
+s.listen = s.server.listen.bind(s.server);
+s.address = s.server.address.bind(s.server);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol" id="apidoc.element.seaport.protocol">
+        function <span class="apidocSignatureSpan">seaport.</span>protocol
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Protocol(opts) {
+    var self = this;
+    if (!(self instanceof Protocol)) return new Protocol(opts);
+    Duplex.call(self, { objectMode: true });
+    if (!opts) opts = {};
+
+    self.known = {};
+    self.timing = {
+        heartbeat: opts.heartbeat,
+        timeout: opts.timeout
+    };
+
+    if (self.timing.heartbeat) {
+        self.heartbeatInterval = setInterval(function () {
+            self.send([ &#x27;heartbeat&#x27; ]);
+        }, self.timing.heartbeat);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.super" id="apidoc.element.seaport.super">
+        function <span class="apidocSignatureSpan">seaport.</span>super
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seaport.protocol" id="apidoc.module.seaport.protocol">module seaport.protocol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.protocol" id="apidoc.element.seaport.protocol.protocol">
+        function <span class="apidocSignatureSpan">seaport.</span>protocol
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Protocol(opts) {
+    var self = this;
+    if (!(self instanceof Protocol)) return new Protocol(opts);
+    Duplex.call(self, { objectMode: true });
+    if (!opts) opts = {};
+
+    self.known = {};
+    self.timing = {
+        heartbeat: opts.heartbeat,
+        timeout: opts.timeout
+    };
+
+    if (self.timing.heartbeat) {
+        self.heartbeatInterval = setInterval(function () {
+            self.send([ &#x27;heartbeat&#x27; ]);
+        }, self.timing.heartbeat);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.super" id="apidoc.element.seaport.protocol.super">
+        function <span class="apidocSignatureSpan">seaport.protocol.</span>super
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Duplex(options) {
+  if (!(this instanceof Duplex))
+    return new Duplex(options);
+
+  Readable.call(this, options);
+  Writable.call(this, options);
+
+  if (options &#x26;&#x26; options.readable === false)
+    this.readable = false;
+
+  if (options &#x26;&#x26; options.writable === false)
+    this.writable = false;
+
+  this.allowHalfOpen = true;
+  if (options &#x26;&#x26; options.allowHalfOpen === false)
+    this.allowHalfOpen = false;
+
+  this.once(&#x27;end&#x27;, onend);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seaport.protocol.prototype" id="apidoc.module.seaport.protocol.prototype">module seaport.protocol.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.prototype._read" id="apidoc.element.seaport.protocol.prototype._read">
+        function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>_read
+        <span class="apidocSignatureSpan">(size)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_read = function (size) {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.prototype._write" id="apidoc.element.seaport.protocol.prototype._write">
+        function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>_write
+        <span class="apidocSignatureSpan">(row, enc, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_write = function (row, enc, next) {
+    var self = this;
+    if (row[0] === &#x27;register&#x27;) {
+        this.known[row[1]] = row[2];
+        this.emit(&#x27;register&#x27;, row[1], row[2]);
+    }
+    else if (row[0] === &#x27;free&#x27;) {
+        var meta = this.known[row[1]];
+        delete this.known[row[1]];
+        this.emit(&#x27;free&#x27;, row[1], meta);
+    }
+    else if (row[0] === &#x27;helo&#x27;) {
+        this.emit(&#x27;helo&#x27;, row[1]);
+    }
+    else if (row[0] === &#x27;heartbeat&#x27;) {
+        this.emit(&#x27;heartbeat&#x27;);
+        if (this.timing.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(function () {
+                self.emit(&#x27;timeout&#x27;);
+            }, this.timing.timeout);
+        }
+    }
+    else if (row[0] === &#x27;synced&#x27;) {
+        this.emit(&#x27;synced&#x27;);
+    }
+    next();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.prototype.createStream" id="apidoc.element.seaport.protocol.prototype.createStream">
+        function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>createStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createStream = function () {
+    var unsplit = through(function (row) {
+        this.queue(json.stringify(row) + &#x27;\n&#x27;);
+    });
+    return combine(split(json.parse), this, unsplit);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+c.on(&#x27;connect&#x27;, s.emit.bind(s, &#x27;connect&#x27;));
+
+c.on(&#x27;end&#x27;, onend);
+c.on(&#x27;error&#x27;, onend);
+c.on(&#x27;close&#x27;, onend);
+
+var stream = s.<span class="apidocCodeKeywordSpan">createStream</span>();
+stream.on(&#x27;timeout&#x27;, onend);
+
+c.pipe(stream).pipe(c);
+return c;
+
+function onend () {
+    if (s.closed) return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.prototype.destroy" id="apidoc.element.seaport.protocol.prototype.destroy">
+        function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+    clearInterval(this.heartbeatInterval);
+    clearTimeout(this.timeout);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    c.pipe(stream).pipe(c);
+    return c;
+
+    function onend () {
+        if (s.closed) return;
+        if (!active) return;
+        active = false;
+        if (stream.destroy) stream.<span class="apidocCodeKeywordSpan">destroy</span>();
+        s.emit(&#x27;disconnect&#x27;);
+        setTimeout(reconnect, 1000);
+    }
+})();
+
+s.on(&#x27;close&#x27;, function () {
+    if (c) c.end();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.protocol.prototype.send" id="apidoc.element.seaport.protocol.prototype.send">
+        function <span class="apidocSignatureSpan">seaport.protocol.prototype.</span>send
+        <span class="apidocSignatureSpan">(row)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (row) {
+    this.push(row);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    self.timing = {
+        heartbeat: opts.heartbeat,
+        timeout: opts.timeout
+    };
+
+    if (self.timing.heartbeat) {
+        self.heartbeatInterval = setInterval(function () {
+            self.<span class="apidocCodeKeywordSpan">send</span>([ &#x27;heartbeat&#x27; ]);
+        }, self.timing.heartbeat);
+    }
+}
+
+Protocol.prototype.send = function (row) {
+    this.push(row);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seaport.seaport" id="apidoc.module.seaport.seaport">module seaport.seaport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.seaport" id="apidoc.element.seaport.seaport.seaport">
+        function <span class="apidocSignatureSpan">seaport.</span>seaport
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Seaport(opts) {
+    var self = this;
+    if (!(this instanceof Seaport)) return new Seaport(opts);
+    if (!opts) opts = {};
+    this.endpoints = [];
+    this.services = {};
+    this.heartbeat = defined(opts.heartbeat, 15 * 1000);
+    this.timeout = defined(opts.timeout, this.heartbeat * 3);
+    this.known = {};
+    this.doc = this; // for legacy .doc.set() syntax, deprecated
+
+    if (opts.private) {
+        var keys = { private: opts.private, public: opts.public };
+        this.secure = secure(keys);
+        if (opts.authorized) {
+            this.authorized = opts.authorized.map(normalizeKey);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.super" id="apidoc.element.seaport.seaport.super">
+        function <span class="apidocSignatureSpan">seaport.seaport.</span>super
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seaport.seaport.prototype" id="apidoc.module.seaport.seaport.prototype">module seaport.seaport.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype._isAuthorized" id="apidoc.element.seaport.seaport.prototype._isAuthorized">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>_isAuthorized
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_isAuthorized = function (id) {
+    if (!this.authorized) return true;
+    return indexOf(this.authorized, normalizeKey(id)) &#x3e;= 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.emit(&#x27;endpoint&#x27;, p);
+var stream;
+if (this.secure) {
+    stream = this.secure(function (s) {
+        s.pipe(p.createStream()).pipe(s);
+    });
+    stream.on(&#x27;identify&#x27;, function (id) {
+        if (self.<span class="apidocCodeKeywordSpan">_isAuthorized</span>(id.key.public)) {
+            id.accept();
+            self.emit(&#x27;accept&#x27;, id);
+        }
+        else {
+            id.reject();
+            self.emit(&#x27;reject&#x27;, id);
+        }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.close" id="apidoc.element.seaport.seaport.prototype.close">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+    this.closed = true;
+    for (var i = 0; i &#x3c; this.endpoints.length; i++) {
+        var e = this.endpoints[i];
+        e.emit(&#x27;close&#x27;);
+        e.end();
+    }
+    this.emit(&#x27;close&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        c.register({
+            role : &#x27;seaport@&#x27; + version,
+            port : s.address().port
+        });
+    };
+
+    s.on(&#x27;close&#x27;, function () {
+        s.server.<span class="apidocCodeKeywordSpan">close</span>();
+    });
+
+    s.server.on(&#x27;listening&#x27;, s.emit.bind(s, &#x27;listening&#x27;));
+    s.server.on(&#x27;connection&#x27;, s.emit.bind(s, &#x27;connection&#x27;));
+
+    return s;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.createStream" id="apidoc.element.seaport.seaport.prototype.createStream">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>createStream
+        <span class="apidocSignatureSpan">(addr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createStream = function (addr) {
+    var self = this;
+    var p = new Protocol({
+        heartbeat: this.heartbeat,
+        timeout: this.timeout,
+    });
+    this.endpoints.push(p);
+
+    p.on(&#x27;end&#x27;, onend);
+    p.on(&#x27;register&#x27;, function onregister (id, meta) {
+        // prevents loops when peers connect from both sides
+        if (self.known[id] &#x26;&#x26; self.query(meta).length) return;
+
+        if (!meta.host) meta.host = self._host;
+
+        if (self.services[id]) {
+            self.services[id] = meta;
+        }
+        else {
+            self.known[id] = meta;
+        }
+
+        for (var i = 0; i &#x3c; self.endpoints.length; i++) {
+            var e = self.endpoints[i];
+            if (e === p) continue;
+            e.send([ &#x27;register&#x27;, id, meta ]);
+        }
+        self.emit(&#x27;register&#x27;, meta, id);
+    });
+    p.on(&#x27;timeout&#x27;, function () {
+        onend();
+        stream.emit(&#x27;timeout&#x27;);
+    });
+    p.on(&#x27;free&#x27;, function (id) {
+        var obj = self.known[id] ? self.known : self.services;
+        var meta = obj[id];
+        if (!meta) return;
+
+        for (var i = 0; i &#x3c; self.endpoints.length; i++) {
+            var e = self.endpoints[i];
+            e.send([&#x27;free&#x27;, id]);
+        }
+
+        delete obj[id];
+        self.emit(&#x27;free&#x27;, meta, id);
+    });
+    p.on(&#x27;synced&#x27;, function () {
+        stream.emit(&#x27;synced&#x27;);
+        self.emit(&#x27;synced&#x27;, stream);
+    });
+
+    if (!addr &#x26;&#x26; !self._host) {
+        p.on(&#x27;helo&#x27;, function (addr) {
+            self._host = addr;
+            self.emit(&#x27;address&#x27;, addr);
+        });
+    }
+
+    this.emit(&#x27;endpoint&#x27;, p);
+    var stream;
+    if (this.secure) {
+        stream = this.secure(function (s) {
+            s.pipe(p.createStream()).pipe(s);
+        });
+        stream.on(&#x27;identify&#x27;, function (id) {
+            if (self._isAuthorized(id.key.public)) {
+                id.accept();
+                self.emit(&#x27;accept&#x27;, id);
+            }
+            else {
+                id.reject();
+                self.emit(&#x27;reject&#x27;, id);
+            }
+        });
+    }
+    else {
+        stream = p.createStream();
+    }
+    stream.on(&#x27;error&#x27;, onend);
+    stream.on(&#x27;close&#x27;, onend);
+    p.once(&#x27;close&#x27;, function () {
+        p.destroy();
+        var keys = objectKeys(p.known);
+        for (var i = 0; i &#x3c; keys.length; i++) {
+            var key = keys[i];
+            var meta = self.known[key];
+            if (!meta) continue;
+            delete self.known[key];
+            self.emit(&#x27;free&#x27;, meta, key);
+        }
+    });
+
+    if (addr) p.send([ &#x27;helo&#x27;, addr ]);
+
+    registerServices(merge(this.known, this.services), p);
+    self.emit(&#x27;stream&#x27;, stream);
+    self.emit(&#x27;protocol&#x27;, p);
+    return stream;
+
+    function onend () {
+        if (p._ended) return;
+        p._ended = true;
+        p.destroy();
+
+        var ix = indexOf(self.endpoints, p);
+        self.endpoints.splice(ix, 1);
+        var keys = objectKeys(p.known);
+        for (var i = 0; i &#x3c; keys.length; i++) {
+            var key = keys[i];
+            var meta = self.known[key];
+            if (!meta) continue;
+
+            delete self.known[key];
+
+            for (var j = 0; j &#x3c; self.endpoints.length; j++) {
+                var e = self.endpoints[j];
+                if (e === p) continue;
+                e.send([ &#x27;free&#x27;, key ]);
+            }
+
+            self.emit(&#x27;free&#x27;, meta, key);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+c.on(&#x27;connect&#x27;, s.emit.bind(s, &#x27;connect&#x27;));
+
+c.on(&#x27;end&#x27;, onend);
+c.on(&#x27;error&#x27;, onend);
+c.on(&#x27;close&#x27;, onend);
+
+var stream = s.<span class="apidocCodeKeywordSpan">createStream</span>();
+stream.on(&#x27;timeout&#x27;, onend);
+
+c.pipe(stream).pipe(c);
+return c;
+
+function onend () {
+    if (s.closed) return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.free" id="apidoc.element.seaport.seaport.prototype.free">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>free
+        <span class="apidocSignatureSpan">(meta)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">free = function (meta) {
+    var id;
+    if (typeof meta === &#x27;number&#x27;) {
+        meta = { port: meta };
+    }
+    if (typeof meta === &#x27;object&#x27;) {
+        var keys = objectKeys(this.services).concat(objectKeys(this.known));
+        var mkeys = objectKeys(meta);
+        for (var i = 0; i &#x3c; keys.length; i++) {
+            var s = this.services[keys[i]] || this.known[keys[i]];
+            for (var j = 0; j &#x3c; mkeys.length; j++) {
+                if (meta[mkeys[j]] !== s[mkeys[j]]) break;
+            }
+            if (j === mkeys.length) {
+                id = keys[i];
+                meta = this.services[id];
+                break;
+            }
+        }
+        if (i === keys.length) return;
+    }
+    else {
+        id = meta;
+        meta = this.services[id] || this.known[id];
+    }
+
+    if (this.services[id]) {
+        meta = this.services[id];
+        delete this.services[id];
+    } else if (this.known[id]) {
+        meta = this.known[id];
+        delete this.known[id];
+    } else {
+        return;
+    }
+
+    for (var i = 0; i &#x3c; this.endpoints.length; i++) {
+        var e = this.endpoints[i];
+        e.send([ &#x27;free&#x27;, id ]);
+    }
+    this.emit(&#x27;free&#x27;, meta, id);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## s.get(role, cb)
+
+Like `.query()`, but does `cb(services)` with the list of matching entries.
+If `services` is empty, `cb` won&#x27;t fire until there is at least one match
+available.
+
+## s.<span class="apidocCodeKeywordSpan">free</span>(service), s.free(id)
+
+Remove a service registered with `.register()`. You can remove a service by the
+`service` object itself or just its `id`.
+
+## s.authorize(publicKey)
+
+Authorize the PEM-encoded `publicKey` string to make updates.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.get" id="apidoc.element.seaport.seaport.prototype.get">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>get
+        <span class="apidocSignatureSpan">(meta, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get(meta, cb) {
+    var self = this;
+    var ps = this.query(meta);
+    if (ps.length &#x3e; 0) return cb(ps);
+    this.once(&#x27;register&#x27;, function () { self.get(meta, cb) });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+client.js:
+
+``` js
+var seaport = require(&#x27;seaport&#x27;);
+var ports = seaport.connect(9090);
+var request = require(&#x27;request&#x27;);
+
+ports.<span class="apidocCodeKeywordSpan">get</span>(&#x27;web@1.2.x&#x27;, function (ps) {
+    var u = &#x27;http://&#x27; + ps[0].host + &#x27;:&#x27; + ps[0].port;
+    request(u).pipe(process.stdout);
+});
+```
+
+output:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.query" id="apidoc.element.seaport.seaport.prototype.query">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>query
+        <span class="apidocSignatureSpan">(meta)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (meta) {
+    meta = fixMeta(meta);
+    var mkeys = objectKeys(meta);
+    var skeys = objectKeys(this.services);
+    var keys = objectKeys(this.known);
+
+    var rows = [];
+    for (var i = 0; i &#x3c; keys.length; i++) {
+        var key = keys[i];
+        var row = this.known[key];
+        if (matches(row)) rows.push(row);
+    }
+    for (var i = 0; i &#x3c; skeys.length; i++) {
+        var key = skeys[i];
+        var row = this.services[key];
+        if (matches(row)) rows.push(row);
+    }
+    return rows;
+
+    function matches (row) {
+        for (var i = 0; i &#x3c; mkeys.length; i++) {
+            var mkey = mkeys[i];
+            if (mkey === &#x27;version&#x27;) {
+                if (!semver.satisfies(row.version, meta.version)) {
+                    return false;
+                }
+            }
+            else if (row[mkey] !== meta[mkey]) return false;
+        }
+        return true;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var s = seaport(opts);
+var conIx = 0;
+
+var c = (function reconnect () {
+    if (s.closed) return;
+
+    var hubs = [ { port : port, host : host } ].concat(s.<span class="apidocCodeKeywordSpan">query</span>(&#x27;seaport&#x27;));
+    if (hubs.length &#x3c;= conIx) conIx = hubs.length - 1;
+    c = net.connect.call(null, hubs[conIx].port, hubs[conIx].host);
+    conIx = (conIx + 1) % hubs.length;
+
+    var active = true;
+
+    c.on(&#x27;connect&#x27;, s.emit.bind(s, &#x27;connect&#x27;));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.register" id="apidoc.element.seaport.seaport.prototype.register">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>register
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function () {
+    return this.registerMeta.apply(this, arguments).port;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return;
+    }
+    var stream = s.createStream();
+    var c = exports.connect.apply(this, arguments);
+    s.on(&#x27;close&#x27;, c.close.bind(c));
+    stream.pipe(c.createStream()).pipe(stream);
+
+    c.<span class="apidocCodeKeywordSpan">register</span>({
+        role : &#x27;seaport@&#x27; + version,
+        port : s.address().port
+    });
+};
+
+s.on(&#x27;close&#x27;, function () {
+    s.server.close();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.registerMeta" id="apidoc.element.seaport.seaport.prototype.registerMeta">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>registerMeta
+        <span class="apidocSignatureSpan">(meta, port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerMeta = function (meta, port) {
+    var self = this;
+    meta = fixMeta(meta, port);
+
+    if (!meta.port) {
+        meta.port = 10000 + Math.floor(Math.random() * 55000);
+    }
+    var id = meta.id || generateId();
+    meta.id = id;
+    this.services[id] = meta;
+
+    if (!meta.host &#x26;&#x26; this._host) {
+        meta.host = this._host;
+        register();
+    }
+    else if (!meta.host) {
+        this.once(&#x27;address&#x27;, function (addr) {
+            meta.host = addr;
+            register();
+        });
+    }
+    else register()
+
+    return meta;
+
+    function register () {
+        var mserv = {};
+        mserv[id] = meta;
+        for (var i = 0; i &#x3c; self.endpoints.length; i++) {
+            registerServices(mserv, self.endpoints[i]);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+If you don&#x27;t want you specify `role` you can also use `opts.role` and
+`opts.version`.
+
+You can control what the key name will be by setting `opts.id` yourself.
+Otherwise a random hex string will be used.
+
+## var meta = s.<span class="apidocCodeKeywordSpan">registerMeta</span>(role, opts)
+
+Like `s.register()`, but return the entire meta object instead of just the
+`meta.port`. This is handy if you need the `id` to update metadata later.
+
+## var services = s.query(search)
+
+Query the seaport entries with `search` as a `name@semver` string.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seaport.seaport.prototype.set" id="apidoc.element.seaport.seaport.prototype.set">
+        function <span class="apidocSignatureSpan">seaport.seaport.prototype.</span>set
+        <span class="apidocSignatureSpan">(id, meta)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (id, meta) {
+    var records = this.services[id] ? this.services : this.known;
+    if (!records[id]) return;
+
+    records[id] = meta;
+    if (this.services[id]) return;
+
+    for (var i = 0; i &#x3c; this.endpoints.length; i++) {
+        var e = this.endpoints[i];
+        e.send([ &#x27;register&#x27;, id, meta ]);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Authorize the PEM-encoded `publicKey` string to make updates.
+Updates include registering services and setting keys.
+
+## s.close()
+
+Close a seaport connection or server. Cancel any pending requests.
+
+## s.<span class="apidocCodeKeywordSpan">set</span>(id, value)
+
+Update a registration value by its `id`, broadcasting the new registration meta
+`value`.
+
+# events
+
+## s.on(&#x27;register&#x27;, function (service) {})
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
