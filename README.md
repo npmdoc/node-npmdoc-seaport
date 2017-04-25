@@ -1,6 +1,6 @@
 # npmdoc-seaport
 
-#### api documentation for  [seaport (v2.0.9)](https://github.com/substack/seaport)  [![npm package](https://img.shields.io/npm/v/npmdoc-seaport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-seaport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-seaport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-seaport)
+#### basic api documentation for  [seaport (v2.0.9)](https://github.com/substack/seaport)  [![npm package](https://img.shields.io/npm/v/npmdoc-seaport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-seaport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-seaport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-seaport)
 
 #### service registry and port assignment for clusters
 
